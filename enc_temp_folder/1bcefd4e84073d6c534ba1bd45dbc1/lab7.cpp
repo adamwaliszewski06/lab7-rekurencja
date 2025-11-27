@@ -1,8 +1,4 @@
-// ten lab jest wyj¹tkowo bogaty w moje notatki dla samego siebie, które pewnie s¹ ma³o merytorycznie poprawne, bo pisane na bazie mojego rozumienia i pojedynczych konsultacji z czatem gpt xD
-
-
-/* 
-zad 1 - Napisz program, który narysuje na ekranie choinkê z gwiazdek * o wysokoœci n. Wykorzystaj funkcjê
+/* zad 1 - Napisz program, który narysuje na ekranie choinkê z gwiazdek * o wysokoœci n. Wykorzystaj funkcjê
 rekurencyjn¹ do wypisywania linii.
 
 
@@ -144,7 +140,7 @@ void porownaj(string str, string odwrocony) {
 
 /* zad 5 - Napisz program, który znajdzie najwiêkszy element w tablicy liczb ca³kowitych (rozmiar i elementy
 wprowadza u¿ytkownik). Zaimplementuj dwie wersje funkcji: iteracyjn¹ i rekurencyjn¹.
- 
+ */
 
 #include <iostream>
 using namespace std;
@@ -189,11 +185,10 @@ int max_rekurencyjna(int arr[], int n) {
 		return arr[0]; 
 	else {
 		int max = max_rekurencyjna(arr, n - 1); // znajdz max z {n, n-1}
-		// n-1 staje siê "nowym n" dla kolejnej rekurencji, a¿ dotrze do tego, ¿e n==1 - to ostatnie powtórzenie zwaraca wartoœæ z arr[0], która jest wtedy przypisana do max
-		// i jak po schodach wykonuje siê "if" poni¿ej dla rosn¹cych n: arr[1]>max?, arr[2]>max_z_poprzedniej_rekurencji? itd.
+		// n-1 staje siê "nowym n" dla kolejnej rekurencji, a¿ dotrze do tego, ¿e  ?
 
 		if (arr[n - 1] > max) { //jeœli pierwszy element (tab[0]) jest wiêkszy od maxa
-			return arr[n - 1];
+			return arr[n - 1]; 
 		}
 		else {
 			return max;
@@ -202,8 +197,5 @@ int max_rekurencyjna(int arr[], int n) {
 		// return (arr[n - 1] > max) ? arr[n - 1] : m; // (condition) ? value_if_true : value_if_false
 	}
 }
-*/
-
-/* zad 6 */
 
 
