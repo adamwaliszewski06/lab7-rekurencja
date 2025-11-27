@@ -204,6 +204,22 @@ int max_rekurencyjna(int arr[], int n) {
 }
 */
 
-/* zad 6 */
+/* zad 6 - Napisz program, który obliczy potêgê zadanej liczby, zarówno podstawa jak i wyk³adnik powinny byæ
+liczbami naturalnymi okreœlonymi przez u¿ytkownika (zaimplementuj dwie funkcje: iteracyjn¹ i rekurencyjn¹). */
 
+#include <iostream>
+using namespace std;
+int power_it(int b, int e);
+int power_rec(int b, int e);
 
+int main() {
+	int base, exp;
+
+	cout << "Enter a natural number: ";
+	cin >> base;
+	cout << "Enter the exponent: ";
+	cin >> exp;
+
+	cout << base << " to the power of " << exp << " equals " << power_it(base,exp);
+	cout << base << " to the power of " << exp << " equals " << power_rec(base, exp);
+}
