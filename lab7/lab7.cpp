@@ -293,4 +293,38 @@ int power_rec(int b, int e) {
 
 */
 
-/* zad 8 */
+/* zad 8 - Napisz program, który obliczy silniê liczby naturalnej n. Program prosi u¿ytkownika o podanie wartoœci
+liczby n (zaimplementuj dwie funkcje: iteracyjn¹ i rekurencyjn¹). 
+
+#include <iostream>
+using namespace std;
+int factorial_it(int n);
+int factorial_rec(int n);
+int main() {
+	int n;
+	cout << "Enter a natural number to calculate its factorial: ";
+	cin >> n;
+	//cout << "Factorial of " << n << " is " << factorial_it(n) << endl;
+	cout << "Factorial of " << n << " is " << factorial_rec(n) << endl;
+}
+
+int factorial_it(int n) {
+	for (int i = n - 1; i >= 1; i--) {
+		n = n * i;
+	}
+	return n;
+}
+
+int factorial_rec(int n) {
+	if (n == 0 || n == 1) // || to OR logiczny
+		return 1; // 0! i 1! daj¹ 1, warunek zakoñczenia rekurencji
+	else {
+		return n * factorial_rec(n - 1); // n! = n * (n-1)!
+	}
+}
+
+*/
+
+/* zad 9 - Napisz program, który obliczy sumê wszystkich liczb naturalnych od 1 do n. Program prosi u¿ytkownika
+o podanie wartoœci n. Zaimplementuj dwie wersje funkcji: iteracyjn¹ i rekurencyjn¹. 
+*/
