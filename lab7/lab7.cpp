@@ -204,8 +204,55 @@ int max_rekurencyjna(int arr[], int n) {
 }
 */
 
-/* zad 6 - Napisz program, który obliczy potêgê zadanej liczby, zarówno podstawa jak i wyk³adnik powinny byæ
-liczbami naturalnymi okreœlonymi przez u¿ytkownika (zaimplementuj dwie funkcje: iteracyjn¹ i rekurencyjn¹). */
+/* zad 6 - Napisz program, który obliczy n-t¹ liczbê ci¹gu Fibonacciego (zaimplementuj dwie funkcje: iteracyjn¹
+i rekurencyjn¹). Program prosi u¿ytkownika o podanie wartoœci liczby n, gdzie n mo¿e byæ dowoln¹ liczb¹
+naturaln¹.
+
+
+#include <iostream>
+using namespace std;
+int fib_it(int n);
+int fib_rec(int n);
+
+int main() {
+	int n;
+	cout << "Enter a natural number (n) to find the n-th number of the Fibonacci sequence: ";
+	cin >> n;
+	//cout << "The " << n << "-th Fibonacci number is " << fib_it(n) << endl;
+	cout << "The " << n << "-th Fibonacci number is " << fib_rec(n) << endl;
+}
+
+int fib_it(int n) {
+	if (n == 1)
+		return 1;
+	else {
+		int a = 0;
+		int b = 1;
+		int c;
+		for (int i = 2; i <= n; i++) {
+			c = a + b;
+			a = b;
+			b = c;
+		}
+		return b; // równowa¿ne z return c
+	}
+}
+
+int fib_rec(int n) {
+	if (n == 0)
+		return 0; //przypadek F(0)
+	else if (n == 1)
+		return 1; //przypadek F(1)
+	else {
+		return fib_rec(n - 1) + fib_rec(n - 2); // ka¿da liczba to suma dwóch poprzednich, wiêc liczba n to suma liczb (n-1) i (n-2)
+	}
+}
+
+*/
+
+
+/* zad 7 - Napisz program, który obliczy potêgê zadanej liczby, zarówno podstawa jak i wyk³adnik powinny byæ
+liczbami naturalnymi okreœlonymi przez u¿ytkownika (zaimplementuj dwie funkcje: iteracyjn¹ i rekurencyjn¹). 
 
 #include <iostream>
 using namespace std;
@@ -220,6 +267,30 @@ int main() {
 	cout << "Enter the exponent: ";
 	cin >> exp;
 
-	cout << base << " to the power of " << exp << " equals " << power_it(base,exp);
+	//cout << base << " to the power of " << exp << " equals " << power_it(base,exp);
 	cout << base << " to the power of " << exp << " equals " << power_rec(base, exp);
 }
+
+int power_it(int b, int e) {
+	if (e==0)
+		return 1;
+	else {
+		int result = 1;
+		for (int i = 1; i <= e; i++) { // petla powtarza sie e razy
+			result = result * b; // 1*b, b*b, b*b*b...
+		}
+		return result;
+	}
+}
+
+int power_rec(int b, int e) {
+	if (e == 0)
+		return 1; // ka¿da liczba do potêgi 0 to 1, warunek zakoñczenia rekurencji
+	else {
+		return b * power_rec(b, e - 1); 
+	}
+}
+
+*/
+
+/* zad 8 */
