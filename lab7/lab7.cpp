@@ -37,7 +37,7 @@ int choinka(int n, int i) {
   
 
 /* zad 2 - Napisz program, który obliczy sumę cyfr liczby naturalnej podanej przez użytkownika. Zaimplementuj
-dwie wersje funkcji: iteracyjną i rekurencyjną.
+dwie wersje funkcji: iteracyjną i rekurencyjną. 
 
 #include <iostream>
 using namespace std;
@@ -53,16 +53,6 @@ int main() {
 	return 0;
 }
 
-int s_iteracyjna(int n) {
-	int suma = 0;
-	while (n > 0) {
-		suma = suma + (n % 10); //n%10 daje ostatnia cyfre n
-		n = n / 10; //usuwamy ostatnia cyfre n
-	}
-	return suma;
-}
-
-
 int s_rekurencyjna(int n) {
 	int suma = 0;
 	if (n == 0)
@@ -70,11 +60,24 @@ int s_rekurencyjna(int n) {
 	else {
 		suma = (n % 10) + s_rekurencyjna(n / 10);
 		// n%10 daje ostatnia cyfre n , s_rekurencyjna(n/10) wywoluje funkcje dla n bez ostatniej cyfry
+		// typ int, więc liczby od 1-9 podzielone na 10 dają n=0
 		return suma;
 	}
 }
 
+int s_iteracyjna(int n) {
+	int suma = 0;
+	while (n > 0) { 
+		suma = suma + (n % 10); //n%10 daje ostatnia cyfre n
+		n = n / 10; //usuwamy ostatnia cyfre n
+	}
+	return suma;
+}
+
  */
+
+
+
 
 /* zad 3 -  Napisz program, który odwróci napis (string) podany przez użytkownika. Wykorzystaj do tego funkcję
 rekurencyjną. 
@@ -103,6 +106,7 @@ string odwroc(string str) {
 	}
 }
 */
+
 
 /* zad 4 - Napisz program, który sprawdzi, czy dany napis jest palindromem (czytany od przodu i od tyłu jest
 taki sam). Wykorzystaj funkcję rekurencyjną.
@@ -143,7 +147,7 @@ void porownaj(string str, string odwrocony) {
  */
 
 /* zad 5 - Napisz program, który znajdzie największy element w tablicy liczb całkowitych (rozmiar i elementy
-wprowadza użytkownik). Zaimplementuj dwie wersje funkcji: iteracyjną i rekurencyjną.
+wprowadza użytkownik). Zaimplementuj dwie wersje funkcji: iteracyjną i rekurencyjną. 
  
 
 #include <iostream>
@@ -152,13 +156,14 @@ int max_iteracyjna(int arr[], int n);
 int max_rekurencyjna(int arr[], int n);
 
 int main() {
-	int s;
+	int s; //size
 	cout << "Podaj wielkosc tablicy: ";
 	cin >> s;
 	int* tab = new int[s];
 	for (int i = 0; i < s; i++) {
 		tab[i] = i;
 	}
+	//^tablica dynamiczna, rozmiar podany przez użytkownika
 
 	for (int i = 0; i < s; i++) {
 		cout << "Podaj " << i+1 << " element tablicy: ";
@@ -188,9 +193,11 @@ int max_rekurencyjna(int arr[], int n) {
 	if (n == 1) // jeśli jest tylko jeden element
 		return arr[0]; 
 	else {
-		int max = max_rekurencyjna(arr, n - 1); // znajdz max z {n, n-1}
-		// n-1 staje się "nowym n" dla kolejnej rekurencji, aż dotrze do tego, że n==1 - to ostatnie powtórzenie zwaraca wartość z arr[0], która jest wtedy przypisana do max
-		// i jak po schodach wykonuje się "if" poniżej dla rosnących n: arr[1]>max?, arr[2]>max_z_poprzedniej_rekurencji? itd.
+		int max = max_rekurencyjna(arr, n - 1); 
+		// n-1 staje się "nowym n" dla kolejnej rekurencji, maleje aż dotrze do tego, że n==1 
+		// to ostatnie powtórzenie zwaraca wartość z arr[0], która jest wtedy przypisana do max
+		// i jak po schodach wykonuje się "if" poniżej dla rosnących n: 
+		// arr[1]>max?, arr[2]>max_z_poprzedniej_rekurencji? itd.
 
 		if (arr[n - 1] > max) { //jeśli pierwszy element (tab[0]) jest większy od maxa
 			return arr[n - 1];
@@ -202,7 +209,9 @@ int max_rekurencyjna(int arr[], int n) {
 		// return (arr[n - 1] > max) ? arr[n - 1] : m; // (condition) ? value_if_true : value_if_false
 	}
 }
+
 */
+
 
 /* zad 6 - Napisz program, który obliczy n-tą liczbę ciągu Fibonacciego (zaimplementuj dwie funkcje: iteracyjną
 i rekurencyjną). Program prosi użytkownika o podanie wartości liczby n, gdzie n może być dowolną liczbą
@@ -472,7 +481,7 @@ int lcm_rec(int a, int b) {
 */
 
 /* zad 12 - Wykorzystaj poniższy kod, aby sprawdzić czas działania dla funkcji iteracyjnej i rekurencyjnej z zadań
-1-3. Przetestuj odpowiednio duże wartości aby zauważyć różnicę w czasie, która z funkcji działa szybciej? */
+1-3. Przetestuj odpowiednio duże wartości aby zauważyć różnicę w czasie, która z funkcji działa szybciej? 
 
 #include <iostream> 
 #include <stdlib.h>
@@ -496,3 +505,4 @@ int main() { //kod 07_03
 }
 
 
+*/
